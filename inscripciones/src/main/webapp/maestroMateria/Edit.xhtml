@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaestroMateriaEditDlg" widgetVar="MaestroMateriaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMaestroMateriaTitle}">
+            <h:form id="MaestroMateriaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{maestroMateriaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditMaestroMateriaLabel_idmaestroMateria}" for="idmaestroMateria" />
+                        <p:inputText id="idmaestroMateria" value="#{maestroMateriaController.selected.idmaestroMateria}" title="#{bundle.EditMaestroMateriaTitle_idmaestroMateria}" required="true" requiredMessage="#{bundle.EditMaestroMateriaRequiredMessage_idmaestroMateria}"/>
+                        <p:outputLabel value="#{bundle.EditMaestroMateriaLabel_maestroIdmaestro}" for="maestroIdmaestro" />
+                        <p:selectOneMenu id="maestroIdmaestro" value="#{maestroMateriaController.selected.maestroIdmaestro}" required="true" requiredMessage="#{bundle.EditMaestroMateriaRequiredMessage_maestroIdmaestro}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{maestroController.itemsAvailableSelectOne}"
+                                           var="maestroIdmaestroItem"
+                                           itemValue="#{maestroIdmaestroItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditMaestroMateriaLabel_materiaIdmateria}" for="materiaIdmateria" />
+                        <p:selectOneMenu id="materiaIdmateria" value="#{maestroMateriaController.selected.materiaIdmateria}" required="true" requiredMessage="#{bundle.EditMaestroMateriaRequiredMessage_materiaIdmateria}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{materiaController.itemsAvailableSelectOne}"
+                                           var="materiaIdmateriaItem"
+                                           itemValue="#{materiaIdmateriaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{maestroMateriaController.update}" value="#{bundle.Save}" update="display,:MaestroMateriaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MaestroMateriaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MaestroMateriaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaestroViewDlg" widgetVar="MaestroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMaestroTitle}">
+            <h:form id="MaestroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{maestroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMaestroLabel_idmaestro}"/>
+                        <h:outputText value="#{maestroController.selected.idmaestro}" title="#{bundle.ViewMaestroTitle_idmaestro}"/>
+                        <h:outputText value="#{bundle.ViewMaestroLabel_nombre}"/>
+                        <h:outputText value="#{maestroController.selected.nombre}" title="#{bundle.ViewMaestroTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewMaestroLabel_usuario}"/>
+                        <h:outputText value="#{maestroController.selected.usuario}" title="#{bundle.ViewMaestroTitle_usuario}"/>
+                        <h:outputText value="#{bundle.ViewMaestroLabel_tipo}"/>
+                        <h:outputText value="#{maestroController.selected.tipo}" title="#{bundle.ViewMaestroTitle_tipo}"/>
+                        <h:outputText value="#{bundle.ViewMaestroLabel_estatus}"/>
+                        <p:selectBooleanCheckbox value="#{maestroController.selected.estatus}" disabled="true"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MaestroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

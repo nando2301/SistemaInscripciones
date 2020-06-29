@@ -4,9 +4,34 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        Bienvenido al Sistema de Incripciones
+        <br />
+        <h:link outcome="/alumno/List" value="Mostrar Alumnos"
+                rendered="#{login.userIsAdmin()}"/>
+        <br />
+        <h:link outcome="/maestro/List" value="Mostrar Maestros"
+                rendered="#{login.userIsAdmin()}"/>
+        <br />
+        <h:link outcome="/grupo/List" value="Mostrar Grupos"/>
+        <br />
+        <h:link outcome="/incripcion/List" value="Inscribirme"/>
+        <br />
+        <h:link outcome="/maestroMateria/List" value="Asignar Maestro a una Materia"/>
+        <br />
+        <h:link outcome="/materia/List" value="Mostrar Materias"/>
+        <br />
+        <h:link outcome="/rol/List" value="Mostrar Roles"/>
+        <br />
+        <h:link outcome="/rolUsuario/List" value="Asignar Rol a Usuario"/>
+        <br />
+        <h:link outcome="/usuario/List" value="Mostrar Usuarios"/>
+        <br />
+        <h:form>
+            <h:commandLink action="#{login.logout}" value="Logout"></h:commandLink>
+        </h:form>
     </h:body>
 </html>
 

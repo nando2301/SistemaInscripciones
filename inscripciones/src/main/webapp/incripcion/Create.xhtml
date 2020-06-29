@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncripcionCreateDlg" widgetVar="IncripcionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateIncripcionTitle}">
+            <h:form id="IncripcionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incripcionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateIncripcionLabel_idincripcion}" for="idincripcion" />
+                        <p:inputText id="idincripcion" value="#{incripcionController.selected.idincripcion}" title="#{bundle.CreateIncripcionTitle_idincripcion}" required="true" requiredMessage="#{bundle.CreateIncripcionRequiredMessage_idincripcion}"/>
+                        <p:outputLabel value="#{bundle.CreateIncripcionLabel_alumnoIdalumno}" for="alumnoIdalumno" />
+                        <p:selectOneMenu id="alumnoIdalumno" value="#{incripcionController.selected.alumnoIdalumno}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_alumnoIdalumno}">
+                            <f:selectItems value="#{alumnoController.itemsAvailableSelectOne}"
+                                           var="alumnoIdalumnoItem"
+                                           itemValue="#{alumnoIdalumnoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIncripcionLabel_grupoIdgrupo}" for="grupoIdgrupo" />
+                        <p:selectOneMenu id="grupoIdgrupo" value="#{incripcionController.selected.grupoIdgrupo}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_grupoIdgrupo}">
+                            <f:selectItems value="#{grupoController.itemsAvailableSelectOne}"
+                                           var="grupoIdgrupoItem"
+                                           itemValue="#{grupoIdgrupoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{incripcionController.create}" value="#{bundle.Save}" update="display,:IncripcionListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncripcionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="IncripcionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

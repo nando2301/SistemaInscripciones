@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaestroMateriaViewDlg" widgetVar="MaestroMateriaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMaestroMateriaTitle}">
+            <h:form id="MaestroMateriaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{maestroMateriaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMaestroMateriaLabel_idmaestroMateria}"/>
+                        <h:outputText value="#{maestroMateriaController.selected.idmaestroMateria}" title="#{bundle.ViewMaestroMateriaTitle_idmaestroMateria}"/>
+                        <h:outputText value="#{bundle.ViewMaestroMateriaLabel_maestroIdmaestro}"/>
+                        <h:outputText value="#{maestroMateriaController.selected.maestroIdmaestro}" title="#{bundle.ViewMaestroMateriaTitle_maestroIdmaestro}"/>
+                        <h:outputText value="#{bundle.ViewMaestroMateriaLabel_materiaIdmateria}"/>
+                        <h:outputText value="#{maestroMateriaController.selected.materiaIdmateria}" title="#{bundle.ViewMaestroMateriaTitle_materiaIdmateria}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MaestroMateriaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
