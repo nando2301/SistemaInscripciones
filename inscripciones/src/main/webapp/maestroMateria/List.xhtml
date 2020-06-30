@@ -37,13 +37,13 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{bundle.ListMaestroMateriaTitle_maestroIdmaestro}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.maestroIdmaestro}"/>
+                                <h:outputText value="#{item.maestroIdmaestro.nombre}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="#{bundle.ListMaestroMateriaTitle_materiaIdmateria}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.materiaIdmateria}"/>
+                                <h:outputText value="#{item.materiaIdmateria.clave} #{item.materiaIdmateria.nombre}"/>
                             </p:column>
                             <f:facet name="footer">
                                 <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{maestroMateriaController.prepareCreate}" update=":MaestroMateriaCreateForm" oncomplete="PF('MaestroMateriaCreateDialog').show()"/>

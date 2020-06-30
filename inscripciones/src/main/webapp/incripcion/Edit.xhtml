@@ -12,13 +12,12 @@
             <h:form id="IncripcionEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{incripcionController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditIncripcionLabel_idincripcion}" for="idincripcion" />
-                        <p:inputText id="idincripcion" value="#{incripcionController.selected.idincripcion}" title="#{bundle.EditIncripcionTitle_idincripcion}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_idincripcion}"/>
                         <p:outputLabel value="#{bundle.EditIncripcionLabel_alumnoIdalumno}" for="alumnoIdalumno" />
                         <p:selectOneMenu id="alumnoIdalumno" value="#{incripcionController.selected.alumnoIdalumno}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_alumnoIdalumno}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{alumnoController.itemsAvailableSelectOne}"
                                            var="alumnoIdalumnoItem"
+                                           itemLabel="#{alumnoIdalumnoItem.nombre}"
                                            itemValue="#{alumnoIdalumnoItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditIncripcionLabel_grupoIdgrupo}" for="grupoIdgrupo" />
@@ -26,6 +25,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{grupoController.itemsAvailableSelectOne}"
                                            var="grupoIdgrupoItem"
+                                           itemLabel="#{grupoIdgrupoItem.idgrupo} - #{grupoIdgrupoItem.materiaIdmateria.clave} #{grupoIdgrupoItem.materiaIdmateria.nombre}"
                                            itemValue="#{grupoIdgrupoItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>

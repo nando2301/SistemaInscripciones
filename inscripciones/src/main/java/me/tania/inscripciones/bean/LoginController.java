@@ -80,4 +80,14 @@ public class LoginController implements Serializable {
         String username = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("username");
         return LoginDAO.isAdmin(username);
     }
+    
+    public boolean userIsAlumno(){
+        String username = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("username");
+        return LoginDAO.isAlumno(username);
+    }
+    
+    public boolean userIsMaestro(){
+        String username = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("username");
+        return LoginDAO.isMaestro(username);
+    }
 }

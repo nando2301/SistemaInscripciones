@@ -19,6 +19,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{maestroController.itemsAvailableSelectOne}"
                                            var="maestroIdmaestroItem"
+                                           itemLabel="#{maestroIdmaestroItem.nombre}"
                                            itemValue="#{maestroIdmaestroItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditMaestroMateriaLabel_materiaIdmateria}" for="materiaIdmateria" />
@@ -26,6 +27,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{materiaController.itemsAvailableSelectOne}"
                                            var="materiaIdmateriaItem"
+                                           itemLabel="#{materiaIdmateriaItem.clave} #{materiaIdmateriaItem.nombre}"
                                            itemValue="#{materiaIdmateriaItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>

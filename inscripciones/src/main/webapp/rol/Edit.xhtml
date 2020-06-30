@@ -17,8 +17,13 @@
                         <p:outputLabel value="#{bundle.EditRolLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{rolController.selected.nombre}" title="#{bundle.EditRolTitle_nombre}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{rolController.update}" value="#{bundle.Save}" update="display,:RolListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RolEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="RolEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{rolController.update}"
+                                     value="#{bundle.Save}"
+                                     update="display,:RolListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'RolEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}"
+                                     update="display,:RolListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'RolEditDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

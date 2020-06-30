@@ -15,11 +15,14 @@
                         <h:outputText value="#{bundle.ViewMaestroMateriaLabel_idmaestroMateria}"/>
                         <h:outputText value="#{maestroMateriaController.selected.idmaestroMateria}" title="#{bundle.ViewMaestroMateriaTitle_idmaestroMateria}"/>
                         <h:outputText value="#{bundle.ViewMaestroMateriaLabel_maestroIdmaestro}"/>
-                        <h:outputText value="#{maestroMateriaController.selected.maestroIdmaestro}" title="#{bundle.ViewMaestroMateriaTitle_maestroIdmaestro}"/>
+                        <h:outputText value="#{maestroMateriaController.selected.maestroIdmaestro.nombre}" title="#{bundle.ViewMaestroMateriaTitle_maestroIdmaestro}"/>
                         <h:outputText value="#{bundle.ViewMaestroMateriaLabel_materiaIdmateria}"/>
-                        <h:outputText value="#{maestroMateriaController.selected.materiaIdmateria}" title="#{bundle.ViewMaestroMateriaTitle_materiaIdmateria}"/>
+                        <h:outputText value="#{maestroMateriaController.selected.materiaIdmateria.clave} #{maestroMateriaController.selected.materiaIdmateria.nombre}" 
+                                      title="#{bundle.ViewMaestroMateriaTitle_materiaIdmateria}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="MaestroMateriaViewDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Close}"
+                                     update="display,:MaestroMateriaListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args,'MaestroMateriaViewDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

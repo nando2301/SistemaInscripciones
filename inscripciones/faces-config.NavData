@@ -2,15 +2,47 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="login.xhtml" x="650" y="300" zoom="true"/>
         <Node id="alumno/Create.xhtml" x="400" y="450" zoom="true"/>
-        <Node id="index.xhtml" x="650" y="150" zoom="true"/>
-        <Node id="index.html" x="150" y="150" zoom="true"/>
-        <Node id="alumno/View.xhtml" x="150" y="450" zoom="true"/>
-        <Node id="alumno/Edit.xhtml" x="900" y="150" zoom="true"/>
-        <Node id="template.xhtml" x="400" y="300" zoom="true"/>
-        <Node id="admin.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="maestro/View.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="rolUsuario/List.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="maestro/List.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="usuario/List.xhtml" x="1150" y="750" zoom="true"/>
+        <Node id="materia/List.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="usuario/View.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="maestroMateria/Create.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="maestroMateria/List.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="rolUsuario/View.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="maestro/Edit.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="rol/Create.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="alumno/Delete.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="usuario/Create.xhtml" x="900" y="600" zoom="true"/>
         <Node id="alumno/List.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="incripcion/List.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="maestroMateria/View.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="rol/List.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="index.html" x="150" y="150" zoom="true"/>
+        <Node id="maestroMateria/Edit.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="template.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="grupo/Edit.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="rol/View.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="grupo/View.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="rol/Edit.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="incripcion/Edit.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="incripcion/View.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="index.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="incripcion/Create.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="grupo/List.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="alumno/Edit.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="grupo/Create.xhtml" x="900" y="900" zoom="true"/>
+        <Node id="usuario/Edit.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="maestro/Create.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="login.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="materia/View.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="rolUsuario/Edit.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="alumno/View.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="materia/Edit.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="rolUsuario/Create.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="materia/Create.xhtml" x="900" y="750" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

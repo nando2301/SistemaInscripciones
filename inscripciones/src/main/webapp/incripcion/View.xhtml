@@ -15,11 +15,14 @@
                         <h:outputText value="#{bundle.ViewIncripcionLabel_idincripcion}"/>
                         <h:outputText value="#{incripcionController.selected.idincripcion}" title="#{bundle.ViewIncripcionTitle_idincripcion}"/>
                         <h:outputText value="#{bundle.ViewIncripcionLabel_alumnoIdalumno}"/>
-                        <h:outputText value="#{incripcionController.selected.alumnoIdalumno}" title="#{bundle.ViewIncripcionTitle_alumnoIdalumno}"/>
+                        <h:outputText value="#{incripcionController.selected.alumnoIdalumno.nombre}" title="#{bundle.ViewIncripcionTitle_alumnoIdalumno}"/>
                         <h:outputText value="#{bundle.ViewIncripcionLabel_grupoIdgrupo}"/>
-                        <h:outputText value="#{incripcionController.selected.grupoIdgrupo}" title="#{bundle.ViewIncripcionTitle_grupoIdgrupo}"/>
+                        <h:outputText value="#{incripcionController.selected.grupoIdgrupo.idgrupo} - #{incripcionController.selected.grupoIdgrupo.materiaIdmateria.clave} #{incripcionController.selected.grupoIdgrupo.materiaIdmateria.nombre}" 
+                                      title="#{bundle.ViewIncripcionTitle_grupoIdgrupo}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="IncripcionViewDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Close}" 
+                                     update="display,:IncripcionListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args,'IncripcionViewDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

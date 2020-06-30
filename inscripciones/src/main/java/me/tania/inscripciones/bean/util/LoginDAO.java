@@ -92,4 +92,60 @@ public class LoginDAO {
         }
         return false;
     }
+
+    public static boolean isAlumno(String username) {
+        Connection con = null;
+        PreparedStatement ps;
+
+        try {
+            con = DataConnect.getConnection();
+            ps = con.prepareStatement("select * \n"
+                    + "from rol_usuario \n"
+                    + "where usuario_idusuario = ? \n"
+                    + "and rol_idrol = 3 ;");
+            ps.setString(1, getUserId(username));
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                //result found, means valid inputs
+                return true;
+            }
+        } catch (SQLException ex) {
+            LOG.log(Level.WARNING, "Error -->{0}", ex.getMessage());
+            System.out.println("Error -->" + ex.getMessage());
+            return false;
+        } finally {
+            DataConnect.close(con);
+        }
+        return false;
+    }
+
+    public static boolean isMaestro(String username) {
+        Connection con = null;
+        PreparedStatement ps;
+
+        try {
+            con = DataConnect.getConnection();
+            ps = con.prepareStatement("select * \n"
+                    + "from rol_usuario \n"
+                    + "where usuario_idusuario = ? \n"
+                    + "and rol_idrol = 2 ;");
+            ps.setString(1, getUserId(username));
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                //result found, means valid inputs
+                return true;
+            }
+        } catch (SQLException ex) {
+            LOG.log(Level.WARNING, "Error -->{0}", ex.getMessage());
+            System.out.println("Error -->" + ex.getMessage());
+            return false;
+        } finally {
+            DataConnect.close(con);
+        }
+        return false;
+    }
 }

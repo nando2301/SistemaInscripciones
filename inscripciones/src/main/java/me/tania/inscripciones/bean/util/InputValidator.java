@@ -24,7 +24,10 @@ public class InputValidator implements Validator {
                 || cadena.contains("=")
                 || cadena.contains("*")) {
             LOG.warning("Los caracteres \",',<,>,&,=,* no son permitidos");
-            throw new ValidatorException(new FacesMessage("Los caracteres \",',<,>,&,=,* no son permitidos"));
+            throw new ValidatorException(
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                            "Aviso",
+                            "Los caracteres \",',<,>,&,=,* no son permitidos"));
         }
     }
 

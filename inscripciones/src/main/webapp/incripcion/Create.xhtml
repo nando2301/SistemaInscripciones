@@ -12,23 +12,28 @@
             <h:form id="IncripcionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{incripcionController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateIncripcionLabel_idincripcion}" for="idincripcion" />
-                        <p:inputText id="idincripcion" value="#{incripcionController.selected.idincripcion}" title="#{bundle.CreateIncripcionTitle_idincripcion}" required="true" requiredMessage="#{bundle.CreateIncripcionRequiredMessage_idincripcion}"/>
                         <p:outputLabel value="#{bundle.CreateIncripcionLabel_alumnoIdalumno}" for="alumnoIdalumno" />
                         <p:selectOneMenu id="alumnoIdalumno" value="#{incripcionController.selected.alumnoIdalumno}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_alumnoIdalumno}">
                             <f:selectItems value="#{alumnoController.itemsAvailableSelectOne}"
                                            var="alumnoIdalumnoItem"
+                                           itemLabel="#{alumnoIdalumnoItem.nombre}"
                                            itemValue="#{alumnoIdalumnoItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateIncripcionLabel_grupoIdgrupo}" for="grupoIdgrupo" />
                         <p:selectOneMenu id="grupoIdgrupo" value="#{incripcionController.selected.grupoIdgrupo}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_grupoIdgrupo}">
                             <f:selectItems value="#{grupoController.itemsAvailableSelectOne}"
                                            var="grupoIdgrupoItem"
+                                           itemLabel="#{grupoIdgrupoItem.idgrupo} - #{grupoIdgrupoItem.materiaIdmateria.clave} #{grupoIdgrupoItem.materiaIdmateria.nombre}"
                                            itemValue="#{grupoIdgrupoItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{incripcionController.create}" value="#{bundle.Save}" update="display,:IncripcionListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncripcionCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="IncripcionCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{incripcionController.create}"
+                                     value="#{bundle.Save}"
+                                     update="display,:IncripcionListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args,'IncripcionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}"
+                                     update="display,:IncripcionListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args,'IncripcionCreateDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
