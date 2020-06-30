@@ -8,20 +8,20 @@
 
     <ui:composition>
 
-        <p:dialog id="IncripcionEditDlg" widgetVar="IncripcionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditIncripcionTitle}">
-            <h:form id="IncripcionEditForm">
+        <p:dialog id="InscripcionEditDlg" widgetVar="InscripcionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditInscripcionTitle}">
+            <h:form id="InscripcionEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{incripcionController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditIncripcionLabel_alumnoIdalumno}" for="alumnoIdalumno" />
-                        <p:selectOneMenu id="alumnoIdalumno" value="#{incripcionController.selected.alumnoIdalumno}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_alumnoIdalumno}">
+                    <p:panelGrid columns="2" rendered="#{inscripcionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditInscripcionLabel_alumnoIdalumno}" for="alumnoIdalumno" />
+                        <p:selectOneMenu id="alumnoIdalumno" value="#{inscripcionController.selected.alumnoIdalumno}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_alumnoIdalumno}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{alumnoController.itemsAvailableSelectOne}"
+                            <f:selectItems value="#{alumnoController.myRecord}"
                                            var="alumnoIdalumnoItem"
                                            itemLabel="#{alumnoIdalumnoItem.nombre}"
                                            itemValue="#{alumnoIdalumnoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditIncripcionLabel_grupoIdgrupo}" for="grupoIdgrupo" />
-                        <p:selectOneMenu id="grupoIdgrupo" value="#{incripcionController.selected.grupoIdgrupo}" required="true" requiredMessage="#{bundle.EditIncripcionRequiredMessage_grupoIdgrupo}">
+                        <p:outputLabel value="#{bundle.EditInscripcionLabel_grupoIdgrupo}" for="grupoIdgrupo" />
+                        <p:selectOneMenu id="grupoIdgrupo" value="#{inscripcionController.selected.grupoIdgrupo}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_grupoIdgrupo}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{grupoController.itemsAvailableSelectOne}"
                                            var="grupoIdgrupoItem"
@@ -29,8 +29,10 @@
                                            itemValue="#{grupoIdgrupoItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{incripcionController.update}" value="#{bundle.Save}" update="display,:IncripcionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'IncripcionEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="IncripcionEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{inscripcionController.update}" value="#{bundle.Save}" update="display,:InscripcionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'InscripcionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}"
+                                     update="display,:InscripcionListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'InscripcionEditDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

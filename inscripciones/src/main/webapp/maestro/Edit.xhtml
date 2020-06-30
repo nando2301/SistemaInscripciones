@@ -12,19 +12,31 @@
             <h:form id="MaestroEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{maestroController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditMaestroLabel_idmaestro}" for="idmaestro" />
-                        <p:inputText id="idmaestro" value="#{maestroController.selected.idmaestro}" title="#{bundle.EditMaestroTitle_idmaestro}" required="true" requiredMessage="#{bundle.EditMaestroRequiredMessage_idmaestro}"/>
                         <p:outputLabel value="#{bundle.EditMaestroLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{maestroController.selected.nombre}" title="#{bundle.EditMaestroTitle_nombre}" />
+                        <p:inputText id="nombre"
+                                     value="#{maestroController.selected.nombre}"
+                                     title="#{bundle.EditMaestroTitle_nombre}"
+                                     required="true"
+                                     validator="inputValidator"/>
                         <p:outputLabel value="#{bundle.EditMaestroLabel_usuario}" for="usuario" />
-                        <p:inputText id="usuario" value="#{maestroController.selected.usuario}" title="#{bundle.EditMaestroTitle_usuario}" />
+                        <p:inputText id="usuario"
+                                     value="#{maestroController.selected.usuario}"
+                                     title="#{bundle.EditMaestroTitle_usuario}"
+                                     required="true"
+                                     validator="inputValidator"/>
                         <p:outputLabel value="#{bundle.EditMaestroLabel_tipo}" for="tipo" />
-                        <p:inputText id="tipo" value="#{maestroController.selected.tipo}" title="#{bundle.EditMaestroTitle_tipo}" />
+                        <p:inputText id="tipo"
+                                     value="#{maestroController.selected.tipo}"
+                                     title="#{bundle.EditMaestroTitle_tipo}"
+                                     validator="inputValidator"/>
                         <p:outputLabel value="#{bundle.EditMaestroLabel_estatus}" for="estatus" />
                         <p:selectBooleanCheckbox id="estatus" value="#{maestroController.selected.estatus}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{maestroController.update}" value="#{bundle.Save}" update="display,:MaestroListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MaestroEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="MaestroEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}"
+                                     update="display,:MaestroListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'MaestroEditDialog');"
+                                     immediate="true"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

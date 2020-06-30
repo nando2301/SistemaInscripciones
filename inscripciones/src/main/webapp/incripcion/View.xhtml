@@ -8,21 +8,21 @@
 
     <ui:composition>
 
-        <p:dialog id="IncripcionViewDlg" widgetVar="IncripcionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewIncripcionTitle}">
-            <h:form id="IncripcionViewForm">
+        <p:dialog id="InscripcionViewDlg" widgetVar="InscripcionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInscripcionTitle}">
+            <h:form id="InscripcionViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{incripcionController.selected != null}">
-                        <h:outputText value="#{bundle.ViewIncripcionLabel_idincripcion}"/>
-                        <h:outputText value="#{incripcionController.selected.idincripcion}" title="#{bundle.ViewIncripcionTitle_idincripcion}"/>
-                        <h:outputText value="#{bundle.ViewIncripcionLabel_alumnoIdalumno}"/>
-                        <h:outputText value="#{incripcionController.selected.alumnoIdalumno.nombre}" title="#{bundle.ViewIncripcionTitle_alumnoIdalumno}"/>
-                        <h:outputText value="#{bundle.ViewIncripcionLabel_grupoIdgrupo}"/>
-                        <h:outputText value="#{incripcionController.selected.grupoIdgrupo.idgrupo} - #{incripcionController.selected.grupoIdgrupo.materiaIdmateria.clave} #{incripcionController.selected.grupoIdgrupo.materiaIdmateria.nombre}" 
-                                      title="#{bundle.ViewIncripcionTitle_grupoIdgrupo}"/>
+                    <p:panelGrid columns="2" rendered="#{inscripcionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_idinscripcion}"/>
+                        <h:outputText value="#{inscripcionController.selected.idinscripcion}" title="#{bundle.ViewInscripcionTitle_idinscripcion}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_alumnoIdalumno}"/>
+                        <h:outputText value="#{inscripcionController.selected.alumnoIdalumno.nombre}" title="#{bundle.ViewInscripcionTitle_alumnoIdalumno}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_grupoIdgrupo}"/>
+                        <h:outputText value="#{inscripcionController.selected.grupoIdgrupo.idgrupo} - #{inscripcionController.selected.grupoIdgrupo.materiaIdmateria.clave} #{inscripcionController.selected.grupoIdgrupo.materiaIdmateria.nombre}" 
+                                      title="#{bundle.ViewInscripcionTitle_grupoIdgrupo}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" 
-                                     update="display,:IncripcionListForm:datalist,:growl"
-                                     oncomplete="handleSubmit(args,'IncripcionViewDialog');"/>
+                                     update="display,:InscripcionListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args,'InscripcionViewDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

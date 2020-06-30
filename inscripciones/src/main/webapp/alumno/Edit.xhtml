@@ -42,7 +42,8 @@
                     <p:commandButton actionListener="#{alumnoController.update}" value="#{bundle.Save}" update="display,:AlumnoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AlumnoEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}"
                                      update="display,:AlumnoListForm:datalist,:growl"
-                                     oncomplete="handleSubmit(args, 'AlumnoEditDialog');"/>
+                                     oncomplete="handleSubmit(args, 'AlumnoEditDialog');"
+                                     immediate="true"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

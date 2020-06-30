@@ -12,17 +12,30 @@
             <h:form id="MateriaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{materiaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditMateriaLabel_idmateria}" for="idmateria" />
-                        <p:inputText id="idmateria" value="#{materiaController.selected.idmateria}" title="#{bundle.EditMateriaTitle_idmateria}" required="true" requiredMessage="#{bundle.EditMateriaRequiredMessage_idmateria}"/>
                         <p:outputLabel value="#{bundle.EditMateriaLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{materiaController.selected.nombre}" title="#{bundle.EditMateriaTitle_nombre}" />
+                        <p:inputText id="nombre"
+                                     value="#{materiaController.selected.nombre}"
+                                     title="#{bundle.EditMateriaTitle_nombre}"
+                                     validator="inputValidator"
+                                     required="true"
+                                     requiredMessage="El #{bundle.EditMateriaTitle_nombre} es requerido"/>
                         <p:outputLabel value="#{bundle.EditMateriaLabel_clave}" for="clave" />
-                        <p:inputText id="clave" value="#{materiaController.selected.clave}" title="#{bundle.EditMateriaTitle_clave}" />
+                        <p:inputText id="clave"
+                                     value="#{materiaController.selected.clave}"
+                                     title="#{bundle.EditMateriaTitle_clave}"
+                                     validator="inputValidator"
+                                     required="true"
+                                     requiredMessage="La #{bundle.EditMateriaTitle_clave} es requerida"/>
                         <p:outputLabel value="#{bundle.EditMateriaLabel_estatus}" for="estatus" />
                         <p:selectBooleanCheckbox id="estatus" value="#{materiaController.selected.estatus}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{materiaController.update}" value="#{bundle.Save}" update="display,:MateriaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MateriaEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="MateriaEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{materiaController.update}" value="#{bundle.Save}"
+                                     update="display,:MateriaListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'MateriaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}"
+                                     update="display,:MateriaListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'MateriaEditDialog');"
+                                     immediate="true"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

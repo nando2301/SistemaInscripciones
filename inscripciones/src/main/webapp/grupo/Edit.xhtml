@@ -13,7 +13,9 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{grupoController.selected != null}">
                         <p:outputLabel value="#{bundle.EditGrupoLabel_cantidad}" for="cantidad" />
-                        <p:inputText id="cantidad" value="#{grupoController.selected.cantidad}" title="#{bundle.EditGrupoTitle_cantidad}" />
+                        <p:inputText id="cantidad" value="#{grupoController.selected.cantidad}" title="#{bundle.EditGrupoTitle_cantidad}" 
+                                     required="true"
+                                     requiredMessage="El campo #{bundle.CreateGrupoTitle_cantidad} es requerido"/>
                         <p:outputLabel value="#{bundle.EditGrupoLabel_estatus}" for="estatus" />
                         <p:selectBooleanCheckbox id="estatus" value="#{grupoController.selected.estatus}" />
                         <p:outputLabel value="#{bundle.EditGrupoLabel_materiaIdmateria}" for="materiaIdmateria" />

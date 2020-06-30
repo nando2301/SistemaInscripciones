@@ -8,13 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="InscripcionCreateDlg" widgetVar="InscripcionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateInscripcionTitle}">
-            <h:form id="InscripcionCreateForm">
+        <p:dialog id="MiInscripcionCreateDlg" widgetVar="MiInscripcionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateInscripcionTitle}">
+            <h:form id="MiInscripcionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{inscripcionController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateInscripcionLabel_alumnoIdalumno}" for="alumnoIdalumno" />
                         <p:selectOneMenu id="alumnoIdalumno" value="#{inscripcionController.selected.alumnoIdalumno}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_alumnoIdalumno}">
-                            <f:selectItems value="#{alumnoController.itemsAvailableSelectOne}"
+                            <f:selectItems value="#{alumnoController.myRecord}"
                                            var="alumnoIdalumnoItem"
                                            itemLabel="#{alumnoIdalumnoItem.nombre}"
                                            itemValue="#{alumnoIdalumnoItem}"/>
@@ -30,10 +30,10 @@
                     <p:commandButton actionListener="#{inscripcionController.create}"
                                      value="#{bundle.Save}"
                                      update="display,:InscripcionListForm:datalist,:growl"
-                                     oncomplete="handleSubmit(args,'InscripcionCreateDialog');"/>
+                                     oncomplete="handleSubmit(args,'MiInscripcionCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}"
                                      update="display,:InscripcionListForm:datalist,:growl"
-                                     oncomplete="handleSubmit(args,'InscripcionCreateDialog');"/>
+                                     oncomplete="handleSubmit(args,'MiInscripcionCreateDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

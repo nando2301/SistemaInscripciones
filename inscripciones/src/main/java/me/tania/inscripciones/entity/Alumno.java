@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package me.tania.inscripciones.entity;
 
 import java.io.Serializable;
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 
+ * @author fernando
  */
 @Entity
 @Table(name = "alumno")
@@ -45,19 +44,19 @@ public class Alumno implements Serializable {
     @Basic(optional = false)
     @Column(name = "idalumno")
     private Integer idalumno;
-    @Size(max = 45)
+    @Size(max = 32)
     @Column(name = "nombre")
     private String nombre;
     @Size(max = 32)
     @Column(name = "usuario")
     private String usuario;
-    @Size(max = 45)
+    @Size(max = 32)
     @Column(name = "matricula")
     private String matricula;
     @Column(name = "estatus")
     private Boolean estatus;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "alumnoIdalumno")
-    private List<Incripcion> incripcionList;
+    private List<Inscripcion> inscripcionList;
 
     public Alumno() {
     }
@@ -107,12 +106,12 @@ public class Alumno implements Serializable {
     }
 
     @XmlTransient
-    public List<Incripcion> getIncripcionList() {
-        return incripcionList;
+    public List<Inscripcion> getInscripcionList() {
+        return inscripcionList;
     }
 
-    public void setIncripcionList(List<Incripcion> incripcionList) {
-        this.incripcionList = incripcionList;
+    public void setInscripcionList(List<Inscripcion> inscripcionList) {
+        this.inscripcionList = inscripcionList;
     }
 
     @Override

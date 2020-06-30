@@ -10,33 +10,34 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author 
+ * @author fernando
  */
 @Entity
-@Table(name = "incripcion")
+@Table(name = "inscripcion")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Incripcion.findAll", query = "SELECT i FROM Incripcion i"),
-    @NamedQuery(name = "Incripcion.findByIdincripcion", query = "SELECT i FROM Incripcion i WHERE i.idincripcion = :idincripcion")})
-public class Incripcion implements Serializable {
+    @NamedQuery(name = "Inscripcion.findAll", query = "SELECT i FROM Inscripcion i"),
+    @NamedQuery(name = "Inscripcion.findByIdinscripcion", query = "SELECT i FROM Inscripcion i WHERE i.idinscripcion = :idinscripcion")})
+public class Inscripcion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "idincripcion")
-    private Integer idincripcion;
+    @Column(name = "idinscripcion")
+    private Integer idinscripcion;
     @JoinColumn(name = "alumno_idalumno", referencedColumnName = "idalumno")
     @ManyToOne(optional = false)
     private Alumno alumnoIdalumno;
@@ -44,19 +45,19 @@ public class Incripcion implements Serializable {
     @ManyToOne(optional = false)
     private Grupo grupoIdgrupo;
 
-    public Incripcion() {
+    public Inscripcion() {
     }
 
-    public Incripcion(Integer idincripcion) {
-        this.idincripcion = idincripcion;
+    public Inscripcion(Integer idinscripcion) {
+        this.idinscripcion = idinscripcion;
     }
 
-    public Integer getIdincripcion() {
-        return idincripcion;
+    public Integer getIdinscripcion() {
+        return idinscripcion;
     }
 
-    public void setIdincripcion(Integer idincripcion) {
-        this.idincripcion = idincripcion;
+    public void setIdinscripcion(Integer idinscripcion) {
+        this.idinscripcion = idinscripcion;
     }
 
     public Alumno getAlumnoIdalumno() {
@@ -78,18 +79,18 @@ public class Incripcion implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idincripcion != null ? idincripcion.hashCode() : 0);
+        hash += (idinscripcion != null ? idinscripcion.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Incripcion)) {
+        if (!(object instanceof Inscripcion)) {
             return false;
         }
-        Incripcion other = (Incripcion) object;
-        if ((this.idincripcion == null && other.idincripcion != null) || (this.idincripcion != null && !this.idincripcion.equals(other.idincripcion))) {
+        Inscripcion other = (Inscripcion) object;
+        if ((this.idinscripcion == null && other.idinscripcion != null) || (this.idinscripcion != null && !this.idinscripcion.equals(other.idinscripcion))) {
             return false;
         }
         return true;
@@ -97,7 +98,7 @@ public class Incripcion implements Serializable {
 
     @Override
     public String toString() {
-        return "me.tania.inscripciones.entity.Incripcion[ idincripcion=" + idincripcion + " ]";
+        return "me.tania.inscripciones.entity.Inscripcion[ idinscripcion=" + idinscripcion + " ]";
     }
 
 }

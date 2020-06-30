@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 
+ * @author fernando
  */
 @Entity
 @Table(name = "rol")
@@ -42,7 +42,7 @@ public class Rol implements Serializable {
     @Basic(optional = false)
     @Column(name = "idrol")
     private Integer idrol;
-    @Size(max = 45)
+    @Size(max = 32)
     @Column(name = "nombre")
     private String nombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolIdrol")

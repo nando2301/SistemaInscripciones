@@ -12,15 +12,27 @@
             <h:form id="UsuarioEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditUsuarioLabel_idusuario}" for="idusuario" />
-                        <p:inputText id="idusuario" value="#{usuarioController.selected.idusuario}" title="#{bundle.EditUsuarioTitle_idusuario}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_idusuario}"/>
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_usuario}" for="usuario" />
-                        <p:inputText id="usuario" value="#{usuarioController.selected.usuario}" title="#{bundle.EditUsuarioTitle_usuario}" />
+                        <p:inputText id="usuario"
+                                     value="#{usuarioController.selected.usuario}"
+                                     title="#{bundle.EditUsuarioTitle_usuario}"
+                                     validator="inputValidator"
+                                     required="true"
+                                     requiredMessage="El Usuario es requerido"/>
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.EditUsuarioTitle_password}" />
+                        <p:inputText id="password"
+                                     value="#{usuarioController.selected.password}"
+                                     title="#{bundle.EditUsuarioTitle_password}"
+                                     validator="passwordValidator"
+                                     required="true"
+                                     requiredMessage="La Contraseña es requerida"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{usuarioController.update}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UsuarioEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{usuarioController.update}"
+                                     value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'UsuarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}"
+                                     update="display,:UsuarioListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'UsuarioEditDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 
+ * @author fernando
  */
 @Entity
 @Table(name = "grupo")
@@ -37,6 +37,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Grupo.findByCantidad", query = "SELECT g FROM Grupo g WHERE g.cantidad = :cantidad"),
     @NamedQuery(name = "Grupo.findByEstatus", query = "SELECT g FROM Grupo g WHERE g.estatus = :estatus")})
 public class Grupo implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "grupoIdgrupo")
+    private List<Inscripcion> inscripcionList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,7 +52,7 @@ public class Grupo implements Serializable {
     @Column(name = "estatus")
     private Boolean estatus;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "grupoIdgrupo")
-    private List<Incripcion> incripcionList;
+    private List<Inscripcion> incripcionList;
     @JoinColumn(name = "materia_idmateria", referencedColumnName = "idmateria")
     @ManyToOne(optional = false)
     private Materia materiaIdmateria;
@@ -86,12 +89,12 @@ public class Grupo implements Serializable {
     }
 
     @XmlTransient
-    public List<Incripcion> getIncripcionList() {
+    public List<Inscripcion> getIncripcionList() {
         return incripcionList;
     }
 
-    public void setIncripcionList(List<Incripcion> incripcionList) {
-        this.incripcionList = incripcionList;
+    public void setIncripcionList(List<Inscripcion> incripcionList) {
+        this.incripcionList = inscripcionList;
     }
 
     public Materia getMateriaIdmateria() {
@@ -125,6 +128,15 @@ public class Grupo implements Serializable {
     @Override
     public String toString() {
         return "me.tania.inscripciones.entity.Grupo[ idgrupo=" + idgrupo + " ]";
+    }
+
+    @XmlTransient
+    public List<Inscripcion> getInscripcionList() {
+        return inscripcionList;
+    }
+
+    public void setInscripcionList(List<Inscripcion> inscripcionList) {
+        this.inscripcionList = inscripcionList;
     }
 
 }

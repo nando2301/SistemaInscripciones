@@ -21,7 +21,9 @@
                         <h:outputText value="#{bundle.ViewMateriaLabel_estatus}"/>
                         <p:selectBooleanCheckbox value="#{materiaController.selected.estatus}" disabled="true"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="MateriaViewDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Close}"
+                                     update="display,:MateriaListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'MateriaViewDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

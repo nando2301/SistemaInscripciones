@@ -23,6 +23,9 @@
                         <h:outputText value="#{bundle.ViewAlumnoLabel_estatus}"/>
                         <p:selectBooleanCheckbox value="#{alumnoController.selected.estatus}" disabled="true"/>
                     </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}"
+                                     update="display,:AlumnoListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'AlumnoViewDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

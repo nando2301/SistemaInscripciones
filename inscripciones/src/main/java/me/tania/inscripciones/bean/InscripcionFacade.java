@@ -9,14 +9,14 @@ package me.tania.inscripciones.bean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import me.tania.inscripciones.entity.Incripcion;
+import me.tania.inscripciones.entity.Inscripcion;
 
 /**
  *
  * @author fernando
  */
 @Stateless
-public class IncripcionFacade extends AbstractFacade<Incripcion> {
+public class InscripcionFacade extends AbstractFacade<Inscripcion> {
 
     @PersistenceContext(unitName = "me.tania_inscripciones_war_1.0PU")
     private EntityManager em;
@@ -26,8 +26,8 @@ public class IncripcionFacade extends AbstractFacade<Incripcion> {
         return em;
     }
 
-    public IncripcionFacade() {
-        super(Incripcion.class);
+    public InscripcionFacade() {
+        super(Inscripcion.class);
     }
 
 }

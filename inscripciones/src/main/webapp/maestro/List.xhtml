@@ -14,62 +14,69 @@
         </ui:define>
 
         <ui:define name="body">
-                <h:form id="MaestroListForm">
-                    <p:panel header="#{bundle.ListMaestroTitle}">
-                        <p:dataTable id="datalist" value="#{maestroController.items}" var="item"
-                            selectionMode="single" selection="#{maestroController.selected}"
-                            paginator="true"
-                            rowKey="#{item.idmaestro}"
-                            rows="10"
-                            rowsPerPageTemplate="10,20,30,40,50"
-                            >
+            <h:form id="MaestroListForm">
+                <p:panel header="#{bundle.ListMaestroTitle}">
+                    <p:dataTable id="datalist" value="#{maestroController.items}" var="item"
+                                 selectionMode="single" selection="#{maestroController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idmaestro}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
 
-                            <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                            <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListMaestroTitle_idmaestro}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.idmaestro}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListMaestroTitle_nombre}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.nombre}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListMaestroTitle_usuario}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.usuario}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListMaestroTitle_tipo}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.tipo}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListMaestroTitle_estatus}"/>
-                                </f:facet>
-                                <p:selectBooleanCheckbox value="#{item.estatus}" disabled="true"/>
-                            </p:column>
-                            <f:facet name="footer">
-                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{maestroController.prepareCreate}" update=":MaestroCreateForm" oncomplete="PF('MaestroCreateDialog').show()"/>
-                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MaestroViewForm" oncomplete="PF('MaestroViewDialog').show()" disabled="#{empty maestroController.selected}"/>
-                                <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MaestroEditForm" oncomplete="PF('MaestroEditDialog').show()" disabled="#{empty maestroController.selected}"/>
-                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{maestroController.destroy}" update=":growl,datalist" disabled="#{empty maestroController.selected}"/>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaestroTitle_idmaestro}"/>
                             </f:facet>
-                        </p:dataTable>
-                    </p:panel>
-                </h:form>
+                            <h:outputText value="#{item.idmaestro}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaestroTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaestroTitle_usuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuario}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaestroTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaestroTitle_estatus}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.estatus}" disabled="true"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{maestroController.prepareCreate}" update=":MaestroCreateForm" oncomplete="PF('MaestroCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MaestroViewForm" oncomplete="PF('MaestroViewDialog').show()" disabled="#{empty maestroController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MaestroEditForm" oncomplete="PF('MaestroEditDialog').show()" disabled="#{empty maestroController.selected}"/>
+                            <p:commandButton id="deleteButton"
+                                             icon="ui-icon-trash"
+                                             value="#{bundle.Delete}"
+                                             update=":MaestroDeleteForm"
+                                             oncomplete="PF('MaestroDeleteDialog').show()"
+                                             disabled="#{empty maestroController.selected}"/>
+                            <!--p:commandButton id="deleteButton" icon="ui-icon-trash"  value="{bundle.Delete}" actionListener="{maestroController.destroy}" update=":growl,datalist" disabled="{empty maestroController.selected}"/-->
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
 
             <ui:include src="Create.xhtml"/>
             <ui:include src="Edit.xhtml"/>
             <ui:include src="View.xhtml"/>
+            <ui:include src="Delete.xhtml"/>
         </ui:define>
     </ui:composition>
 

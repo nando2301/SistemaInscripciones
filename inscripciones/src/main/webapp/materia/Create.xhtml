@@ -16,19 +16,24 @@
                         <p:inputText id="nombre"
                                      value="#{materiaController.selected.nombre}"
                                      title="#{bundle.CreateMateriaTitle_nombre}"
+                                     validator="inputValidator"
                                      required="true"
                                      requiredMessage="El #{bundle.CreateMateriaTitle_nombre} es requerido"/>
                         <p:outputLabel value="#{bundle.CreateMateriaLabel_clave}" for="clave" />
                         <p:inputText id="clave"
                                      value="#{materiaController.selected.clave}"
                                      title="#{bundle.CreateMateriaTitle_clave}"
+                                     validator="inputValidator"
                                      required="true"
-                                     requiredMessage="El #{bundle.CreateMateriaTitle_clave} es requerido"/>
+                                     requiredMessage="La #{bundle.CreateMateriaTitle_clave} es requerida"/>
                         <p:outputLabel value="#{bundle.CreateMateriaLabel_estatus}" for="estatus" />
                         <p:selectBooleanCheckbox id="estatus" value="#{materiaController.selected.estatus}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{materiaController.create}" value="#{bundle.Save}" update="display,:MateriaListForm:datalist,:growl" oncomplete="handleSubmit(args,'MateriaCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="MateriaCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" 
+                                     update="display,:MateriaListForm:datalist,:growl" 
+                                     oncomplete="handleSubmit(args,'MateriaCreateDialog');"
+                                     immediate="true"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

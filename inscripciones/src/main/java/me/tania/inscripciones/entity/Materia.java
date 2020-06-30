@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 
+ * @author fernando
  */
 @Entity
 @Table(name = "materia")
@@ -44,10 +44,10 @@ public class Materia implements Serializable {
     @Basic(optional = false)
     @Column(name = "idmateria")
     private Integer idmateria;
-    @Size(max = 45)
+    @Size(max = 32)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
+    @Size(max = 32)
     @Column(name = "clave")
     private String clave;
     @Column(name = "estatus")

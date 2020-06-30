@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InscripcionDeleteDlg" widgetVar="InscripcionDeleteDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.InscripcionGrupoTitle}">
+            <h:form id="InscripcionDeleteForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="1" rendered="#{inscripcionController.selected != null}">
+                        <p:outputLabel value="¿Está seguro de eliminar este registro?"/>
+                    </p:panelGrid>
+                    <p:commandButton id="deleteButton"
+                                     icon="ui-icon-trash"
+                                     value="#{bundle.Yes}"
+                                     actionListener="#{inscripcionController.destroy}"
+                                     update="display,:InscripcionListForm:datalist,:growl"
+                                     disabled="#{empty inscripcionController.selected}"
+                                     oncomplete="handleSubmit(args, 'InscripcionDeleteDialog');"/>
+                    <p:commandButton id="notButton"
+                                     value="#{bundle.Not}"
+                                     update="display,:InscripcionListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'InscripcionDeleteDialog');"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

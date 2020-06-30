@@ -22,13 +22,16 @@ public class InputValidator implements Validator {
                 || cadena.contains(">")
                 || cadena.contains("&")
                 || cadena.contains("=")
-                || cadena.contains("*")) {
-            LOG.warning("Los caracteres \",',<,>,&,=,* no son permitidos");
+                || cadena.contains("*")
+                || excedeLimite(cadena)) {
+            LOG.warning("Los caracteres \",',<,>,&,=,* no son permitidos y el tamaño máximo es 32");
             throw new ValidatorException(
-                    new FacesMessage(FacesMessage.SEVERITY_WARN,
-                            "Aviso",
-                            "Los caracteres \",',<,>,&,=,* no son permitidos"));
+                    new FacesMessage("Los caracteres \",',<,>,&,=,* no son permitidos y el tamaño máximo es 32"));
         }
+    }
+
+    public boolean excedeLimite(String cadena) {
+        return cadena.length() > 32;
     }
 
 }

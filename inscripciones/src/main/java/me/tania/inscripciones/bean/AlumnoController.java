@@ -5,6 +5,11 @@ import me.tania.inscripciones.bean.util.JsfUtil;
 import me.tania.inscripciones.bean.util.JsfUtil.PersistAction;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -17,10 +22,13 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import me.tania.inscripciones.bean.util.DataConnect;
 
 @Named("alumnoController")
 @SessionScoped
 public class AlumnoController implements Serializable {
+
+    private static final Logger LOG = Logger.getLogger(AlumnoController.class.getName());
 
     @EJB
     private me.tania.inscripciones.bean.AlumnoFacade ejbFacade;
@@ -118,6 +126,44 @@ public class AlumnoController implements Serializable {
 
     public List<Alumno> getItemsAvailableSelectOne() {
         return getFacade().findAll();
+    }
+
+    public List<Alumno> getMyRecord() {
+        String username = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("username");
+        Connection con = null;
+        PreparedStatement ps;
+        List<Alumno> alumnos = new ArrayList<>();
+
+        try {
+            con = DataConnect.getConnection();
+            ps = con.prepareStatement("select * \n"
+                    + "from alumno \n"
+                    + "where usuario = ? ;");
+            ps.setString(1, username);
+            //LOG.info(ps.toString());
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                //result found, means valid inputs
+                Alumno alumno = new Alumno();
+                alumno.setIdalumno(rs.getInt("idalumno"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setUsuario(rs.getString("usuario"));
+                alumno.setMatricula(rs.getString("matricula"));
+                if (rs.getInt("estatus") == 1) {
+                    alumno.setEstatus(Boolean.TRUE);
+                } else {
+                    alumno.setEstatus(Boolean.FALSE);
+                }
+                boolean add = alumnos.add(alumno);
+            }
+        } catch (SQLException ex) {
+            LOG.log(Level.WARNING, "Error -->{0}", ex.getMessage());
+            System.out.println("Error -->" + ex.getMessage());
+        } finally {
+            DataConnect.close(con);
+        }
+        return alumnos;
     }
 
     @FacesConverter(forClass = Alumno.class)

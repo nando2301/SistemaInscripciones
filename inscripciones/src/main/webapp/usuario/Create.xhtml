@@ -12,11 +12,29 @@
             <h:form id="UsuarioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuario}"
+                                       for="usuario" />
+                        <p:inputText id="usuario"
+                                     value="#{usuarioController.selected.usuario}"
+                                     title="#{bundle.CreateUsuarioTitle_usuario}"
+                                     validator="inputValidator"
+                                     required="true"
+                                     requiredMessage="El Usuario es requerido"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" />
+                        <p:inputText id="password"
+                                     value="#{usuarioController.selected.password}"
+                                     title="#{bundle.CreateUsuarioTitle_password}"
+                                     validator="passwordValidator"
+                                     required="true"
+                                     requiredMessage="La Contraseña es requerida"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{usuarioController.create}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{usuarioController.create}"
+                                     value="#{bundle.Save}"
+                                     update="display,:UsuarioListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}"
+                                     update="display,:UsuarioListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

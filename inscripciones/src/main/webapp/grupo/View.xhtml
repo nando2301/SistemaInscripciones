@@ -22,7 +22,9 @@
                         <h:outputText value="#{grupoController.selected.materiaIdmateria.clave} - #{grupoController.selected.materiaIdmateria.nombre}"
                                       title="#{bundle.ViewGrupoTitle_materiaIdmateria}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="GrupoViewDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Close}"
+                                     update="display,:GrupoListForm:datalist,:growl"
+                                     oncomplete="handleSubmit(args, 'GrupoViewDialog');"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

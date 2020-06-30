@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 
+ * @author fernando
  */
 @Entity
 @Table(name = "maestro")
@@ -45,13 +45,13 @@ public class Maestro implements Serializable {
     @Basic(optional = false)
     @Column(name = "idmaestro")
     private Integer idmaestro;
-    @Size(max = 45)
+    @Size(max = 32)
     @Column(name = "nombre")
     private String nombre;
     @Size(max = 32)
     @Column(name = "usuario")
     private String usuario;
-    @Size(max = 45)
+    @Size(max = 32)
     @Column(name = "tipo")
     private String tipo;
     @Column(name = "estatus")

@@ -53,7 +53,6 @@ public class LoginDAO {
             Usuario usuario = new Usuario();
             if (rs.next()) {
                 usuario.setIdusuario(rs.getInt("idusuario"));
-                LOG.info(usuario.getIdusuario().toString());
                 return usuario.getIdusuario().toString();
             }
         } catch (SQLException ex) {
