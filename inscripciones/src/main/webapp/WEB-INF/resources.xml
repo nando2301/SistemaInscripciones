@@ -2,8 +2,8 @@
 <resources>
   <Resource id="jdbc/inscripciones" type="javax.sql.DataSource">#Sun Jun 28 21:35:30 CDT 2020
         jdbcDriver=com.mysql.cj.jdbc.Driver
-        password=mysql
+        password=nopasswd23
         userName=root
-        jdbcUrl=jdbc\:mysql\://localhost\:3306/inscripciones?zeroDateTimeBehavior\=CONVERT_TO_NULL&amp;serverTimezone\=UTC
+        jdbcUrl=jdbc\:mysql\://localhost\:8889/inscripciones?zeroDateTimeBehavior\=CONVERT_TO_NULL&amp;serverTimezone\=UTC
     </Resource>
 </resources>
