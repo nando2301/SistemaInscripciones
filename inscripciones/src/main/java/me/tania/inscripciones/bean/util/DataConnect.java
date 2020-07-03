@@ -14,7 +14,7 @@ public class DataConnect {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:8889/inscripciones?serverTimezone=UTC", "root", "nopasswd23");
+                    "jdbc:mysql://localhost:3306/inscripciones?serverTimezone=UTC", "root", "mysql");
             return con;
         } catch (ClassNotFoundException | SQLException ex) {
             LOG.log(Level.WARNING, "Database.getConnection() Error -->{0}", ex.getMessage());
