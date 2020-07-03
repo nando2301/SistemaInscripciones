@@ -55,7 +55,13 @@
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{materiaController.prepareCreate}" update=":MateriaCreateForm" oncomplete="PF('MateriaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MateriaViewForm" oncomplete="PF('MateriaViewDialog').show()" disabled="#{empty materiaController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MateriaEditForm" oncomplete="PF('MateriaEditDialog').show()" disabled="#{empty materiaController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{materiaController.destroy}" update=":growl,datalist" disabled="#{empty materiaController.selected}"/>
+                            <p:commandButton id="deleteButton"
+                                             icon="ui-icon-trash"
+                                             value="#{bundle.Delete}"
+                                             update=":MateriaDeleteForm"
+                                             oncomplete="PF('MateriaDeleteDialog').show()"
+                                             disabled="#{empty materiaController.selected}"/>
+                            <!--p:commandButton id="deleteButton" icon="ui-icon-trash"  value="{bundle.Delete}" actionListener="{materiaController.destroy}" update=":growl,datalist" disabled="{empty materiaController.selected}"/-->
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
@@ -64,6 +70,7 @@
             <ui:include src="Create.xhtml"/>
             <ui:include src="Edit.xhtml"/>
             <ui:include src="View.xhtml"/>
+            <ui:include src="Delete.xhtml"/>
         </ui:define>
     </ui:composition>
 

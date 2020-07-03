@@ -18,24 +18,21 @@
                                      title="#{bundle.CreateAlumnoTitle_nombre}"
                                      required="true"
                                      requiredMessage="El #{bundle.CreateAlumnoTitle_nombre} es requerido"
-                                     validator="inputValidator"
-                                     maxlength="45"/>
+                                     validator="inputValidator"/>
                         <p:outputLabel value="#{bundle.CreateAlumnoLabel_usuario}" for="usuario" />
                         <p:inputText id="usuario"
                                      value="#{alumnoController.selected.usuario}"
                                      title="#{bundle.CreateAlumnoTitle_usuario}"
                                      required="true"
                                      requiredMessage="El #{bundle.CreateAlumnoTitle_usuario} es requerido"
-                                     validator="inputValidator"
-                                     maxlength="32"/>
+                                     validator="inputValidator"/>
                         <p:outputLabel value="#{bundle.CreateAlumnoLabel_matricula}" for="matricula" />
                         <p:inputText id="matricula"
                                      value="#{alumnoController.selected.matricula}"
                                      title="#{bundle.CreateAlumnoTitle_matricula}"
                                      required="true"
                                      requiredMessage="El #{bundle.CreateAlumnoTitle_matricula} es requerido"
-                                     validator="inputValidator"
-                                     maxlength="45"/>
+                                     validator="inputValidator"/>
                         <p:outputLabel value="#{bundle.CreateAlumnoLabel_estatus}" for="estatus" />
                         <p:selectBooleanCheckbox id="estatus" value="#{alumnoController.selected.estatus}" />
                     </p:panelGrid>
